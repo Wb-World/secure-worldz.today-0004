@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Digital Agency</title>
+  </head>
+  <body>
+    <div class="scrollToTop"><i class="fas fa-chevron-up"></i></div>
+    <nav>
+      <div class="navbar">
+        <div class="brand"><img src="assets/logo.png" style="margin-top: 0;" alt="" />Secure Worldz</div>
+        <div class="toggle"><i class="fas fa-bars"></i></div>
+      </div>
+      <div class="links">
+        <ul>
+          <li id="nav-link" class="active"><a href="/index.html#home">Home</a></li>
+          <li id="nav-link"><a href="/index.html#services">Services</a></li>
+          <li id="nav-link"><a href="/index.html#about">About</a></li>
+          <li id="nav-link"><a href="#milestones">Milestones</a></li>
+          <li id="nav-link"><a href="/index.html#testimonials">Testimonials</a></li>
+          <li id="nav-link"><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <section class="enquiry-container" style="text-align: center; padding: 20px; margin-top: 40px;">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <!-- Form Title -->
+        <div class="form-title" style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">
+          Inquiry Form
+        </div>
+        
+        <!-- Form Section -->
+        <form method="POST" style="width: 100%; max-width: 600px; text-align: left;">
+          <!-- Name Field -->
+           <!-- Company Name Field -->
+        <div class="form-group" style="margin-bottom: 15px;">
+          <label for="company-name" style="font-size: 16px; font-weight: bold; margin-bottom: 5px; display: block;">Company Name</label>
+          <input type="text" id="company-name" name="company-name" placeholder="Enter your Company Name" required
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; background-color: rgb(196, 195, 195); border-radius: 10px;">
+        </div>
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="name" style="font-size: 16px; font-weight: bold; margin-bottom: 5px; display: block;">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your Full Name" required
+              style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; background-color: rgb(196, 195, 195); border-radius: 10px;">
+          </div>
+          <!-- Email Field -->
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="email" style="font-size: 16px; font-weight: bold; margin-bottom: 5px; display: block;">Email Address</label>
+            <input type="email" id="email" name="email" title="Enter a valid email address" placeholder="Enter your email address" required
+              style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; background-color: rgb(196, 195, 195); border-radius: 10px;">
+          </div>
+          <!-- Phone Field -->
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="phone" style="font-size: 16px; font-weight: bold; margin-bottom: 5px; display: block;">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" aria-describedby="phone-help" placeholder="+1 1234567890" required pattern="\+\d{1,3} \d{10}"
+              style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; background-color: rgb(196, 195, 195); border-radius: 10px;">
+              <small id="phone-help">Format: +[Country Code] [10-digit number]</small>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="preferences" style="font-size: 16px; font-weight: bold; margin-bottom: 10px; display: block;">
+              Preferred Method of Communication
+            </label>
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="radio" id="preference-phone" name="preferences" value="Phone" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="preference-phone" style="font-size: 14px; cursor: pointer;">
+                Phone
+              </label>
+            </div>
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="radio" id="preference-email" name="preferences" value="Email" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="preference-email" style="font-size: 14px; cursor: pointer;">
+                Email
+              </label>
+            </div>
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="radio" id="preference-both" name="preferences" value="Both" checked
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="preference-both" style="font-size: 14px; cursor: pointer;">
+                Both
+              </label>
+            </div>
+          </div>
+          <!-- Checkbox Field -->
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="services" style="font-size: 16px; font-weight: bold; margin-bottom: 10px; display: block;">
+              Services Required
+            </label>
+          
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="checkbox" id="service-cyber-security" name="services" value="Cyber Security Solutions" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="service-cyber-security" style="font-size: 14px; cursor: pointer;">
+                Cyber Security Solutions
+              </label>
+            </div>
+          
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="checkbox" id="service-web-development" name="services" value="Web & App Development" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="service-web-development" style="font-size: 14px; cursor: pointer;">
+                Web & App Development
+              </label>
+            </div>
+          
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="checkbox" id="service-iot" name="services" value="IOT (Internet of Things)" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="service-iot" style="font-size: 14px; cursor: pointer;">
+                IoT (Internet of Things)
+              </label>
+            </div>
+          
+            <div style="margin-bottom: 10px; display: flex; align-items: center;">
+              <input type="checkbox" id="service-projects" name="services" value="Final Year Projects" 
+                style="margin-right: 10px; accent-color: #007bff;">
+              <label for="service-projects" style="font-size: 14px; cursor: pointer;">
+                Final Year Projects
+              </label>
+            </div>
+          </div>
+          
+          <!-- Message Field -->
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label for="message" style="font-size: 16px; font-weight: bold; margin-bottom: 5px; display: block;">Description</label>
+            <textarea id="message" name="message" rows="5" placeholder="Describe your service requirement. Our Team will contact you soon" required
+              style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; background-color: rgb(196, 195, 195); border-radius: 10px;"></textarea>
+          </div>
+          <!-- Submit Button -->
+          <div class="form-group" style="text-align: center; margin-top: 20px;">
+            <button type="submit" style="background-color: #007BFF; color: #fff; padding: 10px 20px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer;">Submit</button>
+          </div>
+        </form>
+      </div>
+      <style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .enquiry-container {
+            padding: 10px;
+          }
+          .form-title {
+            font-size: 20px;
+          }
+          form {
+            max-width: 100%;
+          }
+          input, textarea {
+            font-size: 14px;
+            padding: 8px;
+          }
+          button {
+            font-size: 14px;
+            padding: 8px 16px;
+          }
+        }
+    
+        @media (max-width: 480px) {
+          .form-title {
+            font-size: 18px;
+          }
+          input, textarea {
+            font-size: 12px;
+            padding: 6px;
+          }
+          button {
+            font-size: 12px;
+            padding: 6px 12px;
+          }
+        }
+      </style>
+    </section>
+    
+
+
+      
+
+    <section class="milestones-container" id="milestones">
+      <h3 class="milestone-title">
+        We Successfully completed 1500+ Projects Successfully & Counting
+      </h3>
+      <div class="milestones">
+        <div class="milestone">
+          <h3 class="milestone-number">100+</h3>
+          <h4 class="milestone-content">Global Customer</h4>
+        </div>
+        <div class="milestone">
+          <h3 class="milestone-number">120+</h3>
+          <h4 class="milestone-content">Completed Projects</h4>
+        </div>
+        <div class="milestone">
+          <h3 class="milestone-number">50+</h3>
+          <h4 class="milestone-content">Expert Worker</h4>
+        </div>
+        <div class="milestone">
+          <h3 class="milestone-number">35+</h3>
+          <h4 class="milestone-content">Event Sponsored</h4>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="icons" style="margin-right: 6rem;">
+        <a href="https://x.com/JJaiganeh92429" target="_blank" style="text-decoration: none; color: inherit;">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="mailto:secureworld947@gmail.com">
+          <i class="fa fa-envelope"></i>
+        </a>
+        <a href="https://www.instagram.com/secure_world1947" target="_blank" style="text-decoration: none; color: inherit;">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div class="copy">2021 Copyrights & Protected</div>
+    </footer>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', function (e) {
+          e.preventDefault();
+          const companyName = document.getElementById('company-name').value;
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+    
+          const preferences = document.querySelector('input[name="preferences"]:checked').value;
+          const services = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+              .map(service => service.value)
+              .join(", ");
+          const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfytND_tH95AQoROX1niQ-IULBnq2wFPxdzW6MZA0gQXRg1fQ/formResponse";
+          const formData = new FormData();
+    
+          formData.append("entry.390378489", companyName); 
+          formData.append("entry.1748090126", name); 
+          formData.append("entry.1722207193", email); 
+          formData.append("entry.91132674", phone); 
+          formData.append("entry.1672719499", message); 
+          formData.append("entry.1769465327", services); 
+          formData.append("entry.1618113489", preferences); 
+       
+          fetch(googleFormURL, {
+              method: "POST",
+              mode: "no-cors", 
+              body: formData
+          })
+          .then(() => {
+              alert("Thank you! We have received your request and will contact you shortly");
+              document.querySelector('form').reset(); 
+          })
+          .catch((error) => {
+              alert("There was an error submitting your message. Please try again.");
+              console.error("Error:", error);
+          });
+      });
+    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
