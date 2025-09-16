@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Secure Worldz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/styles.css">
+    <style>
+        /* Achievements-specific styles */
+        .achievements-hero {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievements-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .achievements-tagline {
+            color: #ff3333;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .achievements-heading {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .achievements-heading span {
+            color: #ff3333;
+        }
+        
+        .achievements-description {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .milestones-section {
+            padding: 100px 0;
+            background-color: #0f0f1a;
+        }
+        
+        .milestones-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .milestone-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .milestone-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 51, 51, 0.1);
+            box-shadow: 0 15px 30px rgba(255, 51, 51, 0.2);
+        }
+        
+        .milestone-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #ff3333;
+        }
+        
+        .milestone-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .milestone-description {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        
+        .awards-section {
+            padding: 100px 0;
+            background-color: #0a0a14;
+        }
+        
+        .awards-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .award-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .award-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 51, 51, 0.1);
+            box-shadow: 0 15px 30px rgba(255, 51, 51, 0.2);
+        }
+        
+        .award-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .award-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .award-organization {
+            font-size: 16px;
+            color: #ff3333;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .award-description {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .award-year {
+            font-size: 14px;
+            color: #888888;
+            font-weight: 500;
+        }
+        
+        .timeline-section {
+            padding: 100px 0;
+            background-color: #0f0f1a;
+        }
+        
+        .timeline-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #ff3333;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #0f0f1a;
+            border: 4px solid #ff3333;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            background: rgba(255, 51, 51, 0.1);
+            box-shadow: 0 15px 30px rgba(255, 51, 51, 0.2);
+        }
+        
+        .timeline-year {
+            color: #ff3333;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-description {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after, 
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .achievements-heading {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Secure<span>Worldz</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-text">Secure<span>Worldz</span></div>
+            <link rel="icon" href="Images/Secure_Worldz.jpg" type="image/jpg">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#achievements" class="active">Achievements</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Achievements Hero Section -->
+    <section id="achievements" class="achievements-hero">
+        <div class="hero-particles"></div>
+        <div class="achievements-hero-content">
+            <div class="achievements-tagline">RECOGNITION & MILESTONES</div>
+            <h1 class="achievements-heading">Our <span>Achievements</span></h1>
+            <p class="achievements-description">At Secure Worldz, we take pride in our journey of excellence and innovation in cybersecurity. Explore our milestones, awards, and recognitions that showcase our commitment to protecting digital worlds.</p>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="milestones-section">
+        <div class="milestones-content">
+            <div class="section-heading">
+                <h2 class="section-title">Key <span>Milestones</span></h2>
+                <p class="section-subtitle">Our journey of growth and innovation in cybersecurity, marked by significant achievements and breakthroughs.</p>
+            </div>
+            <div class="milestones-grid">
+                <div class="milestone-card">
+                    <div class="milestone-icon">🏢</div>
+                    <div class="milestone-number">500+</div>
+                    <h3 class="milestone-title">Enterprise Clients</h3>
+                    <p class="milestone-description">Securing digital assets for businesses across various industries worldwide.</p>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-icon">🌎</div>
+                    <div class="milestone-number">25+</div>
+                    <h3 class="milestone-title">Countries Served</h3>
+                    <p class="milestone-description">Expanding our cybersecurity solutions to protect organizations globally.</p>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-icon">🛡️</div>
+                    <div class="milestone-number">10M+</div>
+                    <h3 class="milestone-title">Threats Neutralized</h3>
+                    <p class="milestone-description">Successfully identifying and preventing cyber threats for our clients.</p>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-icon">💼</div>
+                    <div class="milestone-number">150+</div>
+                    <h3 class="milestone-title">Security Experts</h3>
+                    <p class="milestone-description">A team of dedicated professionals committed to cybersecurity excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="awards-content">
+            <div class="section-heading">
+                <h2 class="section-title">Awards & <span>Recognitions</span></h2>
+                <p class="section-subtitle">Industry recognition for our innovative cybersecurity solutions and commitment to excellence.</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">Cybersecurity Excellence Award</h3>
+                    <div class="award-organization">Global Security Association</div>
+                    <p class="award-description">Recognized for innovative threat detection algorithms and exceptional client security solutions.</p>
+                    <div class="award-year">2023</div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">⭐</div>
+                    <h3 class="award-title">Best Security Innovation</h3>
+                    <div class="award-organization">Tech Innovation Awards</div>
+                    <p class="award-description">Awarded for our groundbreaking AI-powered vulnerability assessment platform.</p>
+                    <div class="award-year">2022</div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🔒</div>
+                    <h3 class="award-title">Top Cybersecurity Provider</h3>
+                    <div class="award-organization">Enterprise Security Magazine</div>
+                    <p class="award-description">Ranked among the top 10 cybersecurity providers for enterprise solutions.</p>
+                    <div class="award-year">2022</div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🚀</div>
+                    <h3 class="award-title">Fastest Growing Security Company</h3>
+                    <div class="award-organization">Business Growth Awards</div>
+                    <p class="award-description">Recognized for exceptional growth and market impact in the cybersecurity sector.</p>
+                    <div class="award-year">2021</div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">🤝</div>
+                    <h3 class="award-title">Partnership Excellence</h3>
+                    <div class="award-organization">Global Tech Partners Alliance</div>
+                    <p class="award-description">Awarded for outstanding collaboration and integration with leading technology platforms.</p>
+                    <div class="award-year">2021</div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">👑</div>
+                    <h3 class="award-title">Customer Choice Award</h3>
+                    <div class="award-organization">Client Satisfaction Index</div>
+                    <p class="award-description">Voted by clients as the most trusted cybersecurity provider for three consecutive years.</p>
+                    <div class="award-year">2020-2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="timeline-content">
+            <div class="section-heading">
+                <h2 class="section-title">Our <span>Journey</span></h2>
+                <p class="section-subtitle">Key moments that have shaped Secure Worldz into a leading cybersecurity provider.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">Company Founded</h3>
+                        <p class="timeline-description">Secure Worldz was established with a vision to make enterprise-grade security accessible to businesses of all sizes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">First Major Client</h3>
+                        <p class="timeline-description">Secured our first Fortune 500 client, marking a significant milestone in our growth journey.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">AI Threat Detection Launch</h3>
+                        <p class="timeline-description">Introduced our proprietary AI-powered threat detection system, revolutionizing our security capabilities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">Global Expansion</h3>
+                        <p class="timeline-description">Expanded our services to Europe and Asia, establishing a truly global cybersecurity presence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">Industry Recognition</h3>
+                        <p class="timeline-description">Received multiple awards for innovation and excellence in cybersecurity solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">500+ Clients Milestone</h3>
+                        <p class="timeline-description">Reached the milestone of serving over 500 enterprise clients across 25+ countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">Secure<span>Worldz</span></div>
+                    <p class="footer-description">Providing cutting-edge cybersecurity solutions to protect businesses in an increasingly connected world.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">
+                            <!-- Twitter icon placeholder -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- LinkedIn icon placeholder -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Facebook icon placeholder -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Instagram icon placeholder -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.preloader').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.width = '15px';
+            cursor.style.height = '15px';
+            cursor.style.backgroundColor = 'rgba(255, 51, 51, 0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.backgroundColor = 'rgba(255, 51, 51, 0.5)';
+        });
+
+        // Interactive elements and cursor effects
+        const interactiveElements = document.querySelectorAll('a, button, .btn, .milestone-card, .award-card, .timeline-content');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
+                cursor.style.backgroundColor = 'rgba(255, 51, 51, 0.2)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.backgroundColor = 'rgba(255, 51, 51, 0.5)';
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+            
+            // Animate menu bars
+            const bars = document.querySelectorAll('.menu-btn .bar');
+            if (menuBtn.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('active');
+                
+                const bars = document.querySelectorAll('.menu-btn .bar');
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            });
+        });
+
+        // Particle Animation
+        function createParticles() {
+            const particlesContainer = document.querySelector('.hero-particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random positioning
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random size
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Scroll Animation (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements that should animate on scroll
+        document.querySelectorAll('.section-title, .section-subtitle, .milestone-card, .award-card, .timeline-content').forEach(elem => {
+            observer.observe(elem);
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Interactive Cards
+        document.querySelectorAll('.milestone-card, .award-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.03)';
+                card.style.boxShadow = '0 15px 30px rgba(255, 51, 51, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
