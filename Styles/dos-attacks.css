@@ -416,15 +416,15 @@ nav ul li a:hover::after {
     }
 }
 
-/* Introduction Section */
-.introduction {
+/* What is DoS Section */
+.what-is {
     padding: 120px 40px;
     background-color: var(--dark-gray);
     position: relative;
     overflow: hidden;
 }
 
-.introduction-content {
+.what-is-content {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -469,11 +469,12 @@ nav ul li a:hover::after {
     transform: translateY(0);
 }
 
-.intro-card {
+.definition-card {
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 15px;
-    padding: 60px 40px;
+    padding: 50px 40px;
     text-align: center;
+    margin-bottom: 60px;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -482,12 +483,12 @@ nav ul li a:hover::after {
     border: 2px solid rgba(255, 51, 51, 0.2);
 }
 
-.intro-card.visible {
+.definition-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.intro-card::before {
+.definition-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -498,37 +499,52 @@ nav ul li a:hover::after {
     z-index: 0;
 }
 
-.intro-text {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+.definition-card > * {
     position: relative;
     z-index: 1;
 }
 
-/* Safe Lab Section */
-.safe-lab {
-    padding: 120px 40px;
-    position: relative;
-    overflow: hidden;
+.definition-icon {
+    font-size: 3rem;
+    color: var(--red);
+    margin-bottom: 30px;
 }
 
-.safe-lab-content {
-    max-width: 1200px;
-    margin: 0 auto;
+.definition-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--red);
 }
 
-.lab-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+.definition-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.threat-impact {
     margin-top: 60px;
 }
 
-.feature-card {
+.impact-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--red);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.impact-item {
     background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
-    padding: 40px 30px;
+    border-radius: 10px;
+    padding: 30px 20px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
@@ -538,17 +554,17 @@ nav ul li a:hover::after {
     transition: opacity 0.8s, transform 0.8s;
 }
 
-.feature-card.visible {
+.impact-item.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
+.impact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 51, 51, 0.1);
 }
 
-.feature-card::before {
+.impact-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -559,70 +575,70 @@ nav ul li a:hover::after {
     transition: width 0.3s;
 }
 
-.feature-card:hover::before {
+.impact-item:hover::before {
     width: 100%;
 }
 
-.feature-icon {
-    font-size: 3rem;
+.impact-icon {
+    font-size: 2.5rem;
     color: var(--red);
-    margin-bottom: 25px;
-}
-
-.feature-title {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin-bottom: 20px;
 }
 
-.feature-description {
-    font-size: 1.1rem;
+.impact-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.impact-description {
+    font-size: 1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Analysis Methods Section */
-.analysis-methods {
+/* Types Section */
+.types {
     padding: 120px 40px;
-    background-color: var(--dark-gray);
     position: relative;
     overflow: hidden;
 }
 
-.analysis-methods-content {
+.types-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.analysis-container {
-    display: flex;
-    flex-direction: column;
+.attack-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 60px;
 }
 
-.analysis-card {
+.attack-card {
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 15px;
-    padding: 40px;
+    padding: 40px 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(30px);
     transition: opacity 0.8s, transform 0.8s;
 }
 
-.analysis-card.visible {
+.attack-card.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
-.analysis-card:hover {
-    transform: translateY(-5px);
+.attack-card:hover {
+    transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
 }
 
-.analysis-card::before {
+.attack-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -633,128 +649,85 @@ nav ul li a:hover::after {
     transition: height 0.3s;
 }
 
-.analysis-card:hover::before {
+.attack-card:hover::before {
     height: 100%;
 }
 
-.analysis-card.static::before {
-    background-color: #4caf50;
-}
-
-.analysis-card.dynamic::before {
-    background-color: #ff9800;
-}
-
-.analysis-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.attack-icon {
+    font-size: 2.5rem;
+    color: var(--red);
     margin-bottom: 25px;
 }
 
-.analysis-icon {
-    font-size: 2.5rem;
-    color: var(--red);
-}
-
-.analysis-card.static .analysis-icon {
-    color: #4caf50;
-}
-
-.analysis-card.dynamic .analysis-icon {
-    color: #ff9800;
-}
-
-.analysis-title {
-    font-size: 1.8rem;
+.attack-title {
+    font-size: 1.5rem;
     font-weight: 600;
-    color: var(--red);
+    margin-bottom: 20px;
 }
 
-.analysis-card.static .analysis-title {
-    color: #4caf50;
-}
-
-.analysis-card.dynamic .analysis-title {
-    color: #ff9800;
-}
-
-.analysis-content {
-    margin-left: 60px;
-}
-
-.analysis-description {
+.attack-description {
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-.analysis-benefits {
+.attack-examples {
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 25px;
+    border-radius: 8px;
+    padding: 20px;
 }
 
-.benefits-title {
-    font-size: 1.2rem;
-    font-weight: 600;
+.attack-examples h4 {
+    font-size: 1.1rem;
     margin-bottom: 15px;
     color: var(--red);
 }
 
-.benefits-list {
+.attack-examples ul {
     list-style: none;
     padding: 0;
 }
 
-.benefits-list li {
-    padding: 8px 0;
+.attack-examples li {
+    padding: 5px 0;
     position: relative;
-    padding-left: 25px;
+    padding-left: 20px;
     color: rgba(255, 255, 255, 0.8);
 }
 
-.benefits-list li::before {
-    content: '✓';
+.attack-examples li::before {
+    content: '•';
     position: absolute;
     left: 0;
     color: var(--red);
     font-weight: bold;
 }
 
-.analysis-card.static .benefits-list li::before {
-    color: #4caf50;
-}
-
-.analysis-card.dynamic .benefits-list li::before {
-    color: #ff9800;
-}
-
-/* Protection Outcomes Section */
-.protection-outcomes {
+/* Detection Section */
+.detection {
     padding: 120px 40px;
+    background-color: var(--dark-gray);
     position: relative;
     overflow: hidden;
 }
 
-.protection-outcomes-content {
+.detection-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.outcomes-grid {
+.detection-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
     margin-top: 60px;
 }
 
-.outcome-card {
+.detection-card {
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 15px;
     padding: 40px 30px;
-    text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
@@ -763,17 +736,17 @@ nav ul li a:hover::after {
     transition: opacity 0.8s, transform 0.8s;
 }
 
-.outcome-card.visible {
+.detection-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.outcome-card:hover {
+.detection-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
 }
 
-.outcome-card::after {
+.detection-card::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -784,163 +757,347 @@ nav ul li a:hover::after {
     transition: width 0.3s;
 }
 
-.outcome-card:hover::after {
+.detection-card:hover::after {
     width: 100%;
 }
 
-.outcome-icon {
+.detection-icon {
     font-size: 2.5rem;
     color: var(--red);
     margin-bottom: 25px;
 }
 
-.outcome-title {
+.detection-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.outcome-description {
+.detection-description {
     font-size: 1.1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
-}
-
-.research-impact {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
-    padding: 50px 40px;
-    text-align: center;
-    margin-top: 60px;
-    border: 2px solid rgba(255, 51, 51, 0.2);
-}
-
-.impact-title {
-    font-size: 1.8rem;
-    font-weight: 600;
     margin-bottom: 25px;
+}
+
+.detection-indicators {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.detection-indicators h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
     color: var(--red);
 }
 
-.impact-text {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
+.detection-indicators ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Conclusion Section */
-.conclusion {
+.detection-indicators li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.detection-indicators li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* Defense Section */
+.defense {
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.defense-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.defense-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 60px;
+}
+
+.defense-layer {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.defense-layer.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.defense-layer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
+}
+
+.defense-layer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background-color: var(--red);
+    transition: height 0.3s;
+}
+
+.defense-layer:hover::before {
+    height: 100%;
+}
+
+.layer-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.layer-icon {
+    font-size: 2.5rem;
+    color: var(--red);
+}
+
+.layer-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--red);
+}
+
+.layer-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+.layer-measures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.measure-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.measure-item:hover {
+    transform: translateY(-3px);
+}
+
+.measure-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--red);
+}
+
+.measure-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ethical Testing Section */
+.ethical-testing {
     padding: 120px 40px;
     background-color: var(--dark-gray);
     position: relative;
     overflow: hidden;
 }
 
-.conclusion-content {
-    max-width: 1000px;
+.ethical-testing-content {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.conclusion-card {
+.testing-guidelines {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.guideline-card {
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 15px;
-    padding: 60px 40px;
+    padding: 30px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s, transform 0.8s;
-    border: 2px solid rgba(255, 51, 51, 0.2);
 }
 
-.conclusion-card.visible {
+.guideline-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.conclusion-card::before {
+.guideline-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
+}
+
+.guideline-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--red);
+    transition: width 0.3s;
+}
+
+.guideline-card:hover::before {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255, 51, 51, 0.05), transparent);
-    z-index: 0;
 }
 
-.conclusion-card > * {
-    position: relative;
-    z-index: 1;
-}
-
-.conclusion-icon {
-    font-size: 3rem;
+.guideline-icon {
+    font-size: 2.5rem;
     color: var(--red);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.conclusion-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: var(--red);
-}
-
-.conclusion-text {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 50px;
-}
-
-.key-principles {
-    margin-top: 50px;
-}
-
-.principles-title {
-    font-size: 1.5rem;
+.guideline-title {
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 30px;
-    color: var(--red);
-}
-
-.principles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.principle-item {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 25px 20px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.principle-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 51, 51, 0.1);
-}
-
-.principle-icon {
-    font-size: 2rem;
-    color: var(--red);
     margin-bottom: 15px;
 }
 
-.principle-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
+.guideline-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.principle-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+.testing-warning {
+    background-color: rgba(255, 107, 53, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
+    border: 2px solid rgba(255, 107, 53, 0.3);
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #ff6b35;
+    margin-bottom: 20px;
+}
+
+.warning-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ff6b35;
+}
+
+.warning-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Resilience Section */
+.resilience {
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.resilience-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resilience-strategies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.strategy-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.strategy-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.strategy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 51, 51, 0.1);
+}
+
+.strategy-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--red);
+    transition: width 0.3s;
+}
+
+.strategy-card:hover::after {
+    width: 100%;
+}
+
+.strategy-icon {
+    font-size: 2.5rem;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.strategy-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.strategy-description {
+    font-size: 1rem;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1059,8 +1216,8 @@ footer {
         font-size: 3.5rem;
     }
     
-    .analysis-content {
-        margin-left: 0;
+    .defense-layer {
+        padding: 30px 20px;
     }
 }
 
@@ -1095,7 +1252,7 @@ footer {
         display: block;
     }
     
-    .hero-content, .introduction-content, .safe-lab-content, .analysis-methods-content, .protection-outcomes-content, .conclusion-content, .footer-content {
+    .hero-content, .what-is-content, .types-content, .detection-content, .defense-content, .ethical-testing-content, .resilience-content, .footer-content {
         padding: 0 20px;
     }
     
@@ -1108,15 +1265,19 @@ footer {
         gap: 15px;
     }
     
-    .intro-card, .conclusion-card {
+    .definition-card, .testing-warning {
         padding: 40px 20px;
     }
     
-    .analysis-card {
+    .attack-card, .detection-card, .guideline-card, .strategy-card {
         padding: 30px 20px;
     }
     
-    .principles-grid {
+    .defense-layers {
+        gap: 30px;
+    }
+    
+    .layer-measures {
         grid-template-columns: 1fr;
     }
 }
@@ -1135,20 +1296,19 @@ footer {
         font-size: 2rem;
     }
     
-    .conclusion-title {
+    .definition-title {
         font-size: 1.5rem;
     }
     
-    .intro-text, .conclusion-text {
+    .definition-text, .warning-text {
         font-size: 1rem;
     }
     
-    .analysis-title {
+    .layer-title {
         font-size: 1.5rem;
     }
     
-    .analysis-description {
+    .layer-description {
         font-size: 1rem;
     }
 }
-

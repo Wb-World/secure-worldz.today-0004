@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoS Attacks - Secure Worldz</title>
+    <link rel="icon" href="Images/Secure_Worldz.jpg" type="image/jpg">
+    <link rel="stylesheet" href="Styles/dos-attacks.css">
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Secure <span>Worldz</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-text">Secure <span>Worldz</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reflected-xss.html">XSS Research</a></li>
+                <li><a href="information-gathering.html">Tools</a></li>
+                <li><a href="sql-injection.html">SQL Injection</a></li>
+                <li><a href="malware-research.html">Malware Research</a></li>
+                <li><a href="dos-attacks.html">DoS Attacks</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 50%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 70%; left: 30%; animation-delay: 4s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tagline">Network Security & Availability Protection</div>
+            <h1 class="hero-heading">Denial of Service (DoS) Attacks — Defense Guide</h1>
+            <p class="hero-description">
+                A comprehensive guide to understanding DoS attacks, their detection methods, and effective defense strategies to maintain service availability and strengthen resilience.
+            </p>
+            <div class="cta-buttons">
+                <a href="#what-is" class="btn btn-primary">Learn More</a>
+                <a href="#types" class="btn btn-secondary">Explore Types</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is DoS Section -->
+    <section id="what-is" class="what-is">
+        <div class="what-is-content">
+            <div class="section-heading">
+                <h2 class="section-title">What is <span>Denial of Service</span>?</h2>
+                <p class="section-subtitle">Understanding the threat to online service availability.</p>
+            </div>
+            <div class="definition-card">
+                <div class="definition-icon">🚫</div>
+                <h3 class="definition-title">Denial of Service (DoS) Attacks</h3>
+                <p class="definition-text">
+                    Denial of Service (DoS) attacks are a significant threat to online services, aiming to make them unavailable to users. These attacks target the availability of systems and services, preventing legitimate users from accessing resources they need.
+                </p>
+            </div>
+            <div class="threat-impact">
+                <h3 class="impact-title">Impact on Organizations</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-icon">💰</div>
+                        <h4 class="impact-name">Financial Loss</h4>
+                        <p class="impact-description">Revenue loss from service unavailability</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">👥</div>
+                        <h4 class="impact-name">User Experience</h4>
+                        <p class="impact-description">Frustrated customers and lost trust</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">📈</div>
+                        <h4 class="impact-name">Reputation Damage</h4>
+                        <p class="impact-description">Long-term brand and credibility impact</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon">⚖️</div>
+                        <h4 class="impact-name">Compliance Issues</h4>
+                        <p class="impact-description">Potential regulatory violations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of DoS Section -->
+    <section id="types" class="types">
+        <div class="types-content">
+            <div class="section-heading">
+                <h2 class="section-title">Types of <span>DoS Attacks</span></h2>
+                <p class="section-subtitle">Understanding different attack vectors and methodologies.</p>
+            </div>
+            <div class="attack-types">
+                <div class="attack-card">
+                    <div class="attack-icon">🌊</div>
+                    <h3 class="attack-title">Volume-Based Attacks</h3>
+                    <p class="attack-description">
+                        Overwhelm the target with massive amounts of traffic, consuming bandwidth and server resources.
+                    </p>
+                    <div class="attack-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li>UDP Floods</li>
+                            <li>ICMP Floods</li>
+                            <li>DNS Amplification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="attack-card">
+                    <div class="attack-icon">⚡</div>
+                    <h3 class="attack-title">Protocol-Based Attacks</h3>
+                    <p class="attack-description">
+                        Exploit weaknesses in network protocols to exhaust server resources or cause system crashes.
+                    </p>
+                    <div class="attack-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li>SYN Floods</li>
+                            <li>Ping of Death</li>
+                            <li>Smurf Attacks</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="attack-card">
+                    <div class="attack-icon">🎯</div>
+                    <h3 class="attack-title">Application-Layer Attacks</h3>
+                    <p class="attack-description">
+                        Target specific applications or services, making them appear legitimate while consuming resources.
+                    </p>
+                    <div class="attack-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li>HTTP Floods</li>
+                            <li>Slowloris</li>
+                            <li>Slow POST</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="attack-card">
+                    <div class="attack-icon">🤖</div>
+                    <h3 class="attack-title">Distributed DoS (DDoS)</h3>
+                    <p class="attack-description">
+                        Multiple compromised systems coordinate to launch attacks, making them harder to defend against.
+                    </p>
+                    <div class="attack-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li>Botnet Attacks</li>
+                            <li>Reflection Attacks</li>
+                            <li>Amplification Attacks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detection Section -->
+    <section id="detection" class="detection">
+        <div class="detection-content">
+            <div class="section-heading">
+                <h2 class="section-title">How to <span>Detect</span> DoS Attacks</h2>
+                <p class="section-subtitle">Early warning signs and monitoring strategies for DoS attacks.</p>
+            </div>
+            <div class="detection-methods">
+                <div class="detection-card">
+                    <div class="detection-icon">📊</div>
+                    <h3 class="detection-title">Traffic Monitoring</h3>
+                    <p class="detection-description">
+                        Monitor network traffic patterns for unusual spikes in volume, connections, or requests that exceed normal baselines.
+                    </p>
+                    <div class="detection-indicators">
+                        <h4>Key Indicators:</h4>
+                        <ul>
+                            <li>Sudden traffic spikes</li>
+                            <li>Unusual connection patterns</li>
+                            <li>High resource utilization</li>
+                            <li>Geographic traffic anomalies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="detection-card">
+                    <div class="detection-icon">⚠️</div>
+                    <h3 class="detection-title">Performance Degradation</h3>
+                    <p class="detection-description">
+                        Watch for signs of system performance issues, slow response times, or service unavailability that may indicate an ongoing attack.
+                    </p>
+                    <div class="detection-indicators">
+                        <h4>Warning Signs:</h4>
+                        <ul>
+                            <li>Increased response times</li>
+                            <li>Server timeouts</li>
+                            <li>Connection failures</li>
+                            <li>Resource exhaustion</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="detection-card">
+                    <div class="detection-icon">🔍</div>
+                    <h3 class="detection-title">Automated Monitoring</h3>
+                    <p class="detection-description">
+                        Implement automated systems that can detect and alert on suspicious patterns, providing real-time threat intelligence.
+                    </p>
+                    <div class="detection-indicators">
+                        <h4>Tools & Systems:</h4>
+                        <ul>
+                            <li>Network monitoring tools</li>
+                            <li>Intrusion detection systems</li>
+                            <li>Log analysis platforms</li>
+                            <li>Real-time alerting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Defense Strategies Section -->
+    <section id="defense" class="defense">
+        <div class="defense-content">
+            <div class="section-heading">
+                <h2 class="section-title">Defense <span>Strategies</span></h2>
+                <p class="section-subtitle">Comprehensive approaches to protect against and mitigate DoS attacks.</p>
+            </div>
+            <div class="defense-layers">
+                <div class="defense-layer">
+                    <div class="layer-icon">🛡️</div>
+                    <h3 class="layer-title">Network-Level Protection</h3>
+                    <div class="layer-content">
+                        <p class="layer-description">
+                            Implement network-level defenses to filter and block malicious traffic before it reaches your servers.
+                        </p>
+                        <div class="layer-measures">
+                            <div class="measure-item">
+                                <h4>Rate Limiting</h4>
+                                <p>Control the number of requests per IP address or user</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>Traffic Filtering</h4>
+                                <p>Block traffic from known malicious sources</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>Load Balancing</h4>
+                                <p>Distribute traffic across multiple servers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-layer">
+                    <div class="layer-icon">⚙️</div>
+                    <h3 class="layer-title">Application-Level Protection</h3>
+                    <div class="layer-content">
+                        <p class="layer-description">
+                            Secure applications and services with specific defenses against application-layer attacks.
+                        </p>
+                        <div class="layer-measures">
+                            <div class="measure-item">
+                                <h4>Input Validation</h4>
+                                <p>Validate and sanitize all user inputs</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>Session Management</h4>
+                                <p>Implement proper session handling and timeouts</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>Resource Limits</h4>
+                                <p>Set limits on memory, CPU, and connection usage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="defense-layer">
+                    <div class="layer-icon">☁️</div>
+                    <h3 class="layer-title">Cloud-Based Protection</h3>
+                    <div class="layer-content">
+                        <p class="layer-description">
+                            Leverage cloud services and CDNs to absorb and filter traffic before it reaches your infrastructure.
+                        </p>
+                        <div class="layer-measures">
+                            <div class="measure-item">
+                                <h4>CDN Services</h4>
+                                <p>Distribute content and filter traffic globally</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>DDoS Protection</h4>
+                                <p>Use specialized DDoS mitigation services</p>
+                            </div>
+                            <div class="measure-item">
+                                <h4>Auto-scaling</h4>
+                                <p>Automatically scale resources during attacks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical Testing Section -->
+    <section id="ethical-testing" class="ethical-testing">
+        <div class="ethical-testing-content">
+            <div class="section-heading">
+                <h2 class="section-title">⚖️ Ethical <span>Testing</span> Practices</h2>
+                <p class="section-subtitle">Safe and responsible approaches to DoS testing and research.</p>
+            </div>
+            <div class="testing-guidelines">
+                <div class="guideline-card">
+                    <div class="guideline-icon">✅</div>
+                    <h3 class="guideline-title">Authorized Testing Only</h3>
+                    <p class="guideline-description">
+                        Only test DoS attacks on systems you own or have explicit written permission to test. Never test on systems you don't control.
+                    </p>
+                </div>
+                
+                <div class="guideline-card">
+                    <div class="guideline-icon">🏠</div>
+                    <h3 class="guideline-title">Isolated Environments</h3>
+                    <p class="guideline-description">
+                        Use dedicated test environments that are completely isolated from production systems and networks.
+                    </p>
+                </div>
+                
+                <div class="guideline-card">
+                    <div class="guideline-icon">📋</div>
+                    <h3 class="guideline-title">Documentation & Reporting</h3>
+                    <p class="guideline-description">
+                        Document all testing activities and report findings responsibly to help improve security defenses.
+                    </p>
+                </div>
+                
+                <div class="guideline-card">
+                    <div class="guideline-icon">🎯</div>
+                    <h3 class="guideline-title">Defensive Focus</h3>
+                    <p class="guideline-description">
+                        Use this knowledge solely for defensive purposes: strengthening systems, improving resilience, and protecting against real threats.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="testing-warning">
+                <div class="warning-icon">⚠️</div>
+                <h3 class="warning-title">Important Reminder</h3>
+                <p class="warning-text">
+                    DoS attacks can cause significant damage and disruption. This knowledge should only be used for legitimate security testing, research, and defensive purposes. Unauthorized DoS attacks are illegal and can result in serious legal consequences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resilience Building Section -->
+    <section id="resilience" class="resilience">
+        <div class="resilience-content">
+            <div class="section-heading">
+                <h2 class="section-title">🏗️ Building <span>Resilience</span></h2>
+                <p class="section-subtitle">Long-term strategies to strengthen service availability and maintain operations during attacks.</p>
+            </div>
+            <div class="resilience-strategies">
+                <div class="strategy-card">
+                    <div class="strategy-icon">🔄</div>
+                    <h3 class="strategy-title">Redundancy & Failover</h3>
+                    <p class="strategy-description">
+                        Implement redundant systems and automatic failover mechanisms to maintain service availability even when primary systems are under attack.
+                    </p>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">📊</div>
+                    <h3 class="strategy-title">Monitoring & Alerting</h3>
+                    <p class="strategy-description">
+                        Establish comprehensive monitoring systems with real-time alerting to quickly detect and respond to potential DoS attacks.
+                    </p>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">👥</div>
+                    <h3 class="strategy-title">Incident Response</h3>
+                    <p class="strategy-description">
+                        Develop and regularly test incident response procedures to ensure rapid and effective response to DoS attacks.
+                    </p>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">🛡️</div>
+                    <h3 class="strategy-title">Security Architecture</h3>
+                    <p class="strategy-description">
+                        Design security into your architecture from the ground up, implementing defense-in-depth strategies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">Secure <span>Worldz</span></div>
+                    <p class="footer-description">
+                        Secure Worldz provides comprehensive DoS attack defense strategies and resilience building techniques to ensure your services remain available and protected.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🔗</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reflected-xss.html">XSS Research</a></li>
+                        <li><a href="information-gathering.html">Tools</a></li>
+                        <li><a href="sql-injection.html">SQL Injection</a></li>
+                        <li><a href="malware-research.html">Malware Research</a></li>
+                        <li><a href="dos-attacks.html">DoS Attacks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 2500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.width = '30px';
+            cursor.style.height = '30px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+        });
+
+        // Scroll Animations
+        const elementsToAnimate = document.querySelectorAll('.section-title, .section-subtitle, .definition-card, .impact-item, .attack-card, .detection-card, .defense-layer, .guideline-card, .strategy-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
