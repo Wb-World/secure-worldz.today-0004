@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflected XSS Research - Secure Worldz</title>
+    <link rel="icon" href="Images/Secure_Worldz.jpg" type="image/jpg">
+    <link rel="stylesheet" href="Styles/reflected-xss.css">
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Secure <span>Worldz</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-text">Secure <span>Worldz</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reflected-xss.html">XSS Research</a></li>
+                <li><a href="information-gathering.html">Tools</a></li>
+                <li><a href="sql-injection.html">SQL Injection</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 50%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 70%; left: 30%; animation-delay: 4s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tagline">Security Research & Demonstration</div>
+            <h1 class="hero-heading">Reflected XSS — Research & Demonstration</h1>
+            <p class="hero-description">
+                A comprehensive analysis of Reflected Cross-Site Scripting vulnerabilities, including detection methods, proof of concept demonstrations, and mitigation strategies.
+            </p>
+            <div class="cta-buttons">
+                <a href="#research" class="btn btn-primary">View Research</a>
+                <a href="#poc" class="btn btn-secondary">See Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Overview Section -->
+    <section id="research" class="research">
+        <div class="research-content">
+            <div class="section-heading">
+                <h2 class="section-title">Research <span>Overview</span></h2>
+                <p class="section-subtitle">Understanding Reflected XSS vulnerabilities and their implications.</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">🎯</div>
+                    <h3 class="research-title">Type</h3>
+                    <p class="research-description">Reflected Cross-Site Scripting (XSS)</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">🔍</div>
+                    <h3 class="research-title">Focus</h3>
+                    <p class="research-description">Detection, Proof of Concept, Mitigation</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">🛠️</div>
+                    <h3 class="research-title">Tools Used</h3>
+                    <p class="research-description">Manual Testing, Burp Suite, DevTools</p>
+                </div>
+            </div>
+            <div class="summary-section">
+                <h3 class="summary-title">✅ Summary</h3>
+                <p class="summary-text">
+                    Reflected XSS occurs when user input is immediately reflected in the HTML response without proper encoding. This allows attackers to inject and execute JavaScript in the victim's browser via malicious links.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof of Concept Section -->
+    <section id="poc" class="poc">
+        <div class="poc-content">
+            <div class="section-heading">
+                <h2 class="section-title">🧪 Proof of <span>Concept</span></h2>
+                <p class="section-subtitle">Demonstrating how Reflected XSS vulnerabilities can be exploited.</p>
+            </div>
+            <div class="poc-demo">
+                <div class="demo-card">
+                    <h3 class="demo-title">Test URL</h3>
+                    <div class="code-block">
+                        <code>https://example.com/search?q=&lt;script&gt;alert('XSS')&lt;/script&gt;</code>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <h3 class="demo-title">Behavior</h3>
+                    <p class="demo-description">
+                        The application reflects the q parameter without encoding — resulting in an alert box when loaded in a browser.
+                    </p>
+                </div>
+                <div class="demo-card warning">
+                    <h3 class="demo-title">⚠️ Security Warning</h3>
+                    <p class="demo-description">
+                        This demonstration is for educational purposes only. Never attempt to exploit vulnerabilities on systems you don't own or have explicit permission to test.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World Impact Section -->
+    <section id="impact" class="impact">
+        <div class="impact-content">
+            <div class="section-heading">
+                <h2 class="section-title">🔐 Real-World <span>Impact</span></h2>
+                <p class="section-subtitle">Understanding the potential consequences of Reflected XSS vulnerabilities.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🍪</div>
+                    <h3 class="impact-title">Session Hijacking</h3>
+                    <p class="impact-description">If cookies aren't HttpOnly, attackers can steal session tokens and impersonate users.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🎣</div>
+                    <h3 class="impact-title">Phishing Attacks</h3>
+                    <p class="impact-description">Create fake forms or redirects to steal sensitive information from users.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">⚡</div>
+                    <h3 class="impact-title">CSRF Exploitation</h3>
+                    <p class="impact-description">Perform unauthorized actions on behalf of authenticated users.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">📊</div>
+                    <h3 class="impact-title">Data Theft</h3>
+                    <p class="impact-description">Implement keyloggers or capture user input for malicious purposes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mitigation Section -->
+    <section id="mitigation" class="mitigation">
+        <div class="mitigation-content">
+            <div class="section-heading">
+                <h2 class="section-title">🛡 Mitigation <span>Strategies</span></h2>
+                <p class="section-subtitle">Best practices for preventing and protecting against Reflected XSS attacks.</p>
+            </div>
+            <div class="mitigation-grid">
+                <div class="mitigation-card">
+                    <div class="mitigation-icon">🔒</div>
+                    <h3 class="mitigation-title">HTML/Context-Aware Encoding</h3>
+                    <p class="mitigation-description">Properly encode user input based on the context where it will be displayed (HTML, JavaScript, CSS, etc.).</p>
+                </div>
+                <div class="mitigation-card">
+                    <div class="mitigation-icon">✅</div>
+                    <h3 class="mitigation-title">Input Validation</h3>
+                    <p class="mitigation-description">Implement strict input validation using allowlists to only accept expected data formats.</p>
+                </div>
+                <div class="mitigation-card">
+                    <div class="mitigation-icon">🛠️</div>
+                    <h3 class="mitigation-title">Safe Templating</h3>
+                    <p class="mitigation-description">Use templating frameworks that automatically escape user input by default.</p>
+                </div>
+                <div class="mitigation-card">
+                    <div class="mitigation-icon">🛡️</div>
+                    <h3 class="mitigation-title">Content Security Policy</h3>
+                    <p class="mitigation-description">Implement CSP headers to restrict the sources of executable scripts and other resources.</p>
+                </div>
+                <div class="mitigation-card">
+                    <div class="mitigation-icon">🍪</div>
+                    <h3 class="mitigation-title">Secure Cookies</h3>
+                    <p class="mitigation-description">Use HttpOnly and Secure flags on cookies to prevent client-side access and ensure HTTPS transmission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Takeaway Section -->
+    <section id="takeaway" class="takeaway">
+        <div class="takeaway-content">
+            <div class="takeaway-card">
+                <div class="takeaway-icon">🧠</div>
+                <h2 class="takeaway-title">Key Takeaway</h2>
+                <p class="takeaway-text">
+                    Reflected XSS is often overlooked but can have serious impact. This demo shows how a simple payload can exploit poor input handling — and highlights the importance of secure coding practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">Secure <span>Worldz</span></div>
+                    <p class="footer-description">
+                        Secure Worldz is dedicated to cybersecurity research and education, empowering businesses with knowledge and innovative solutions for a safer digital world.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🔗</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#poc">Proof of Concept</a></li>
+                        <li><a href="#mitigation">Mitigation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 2500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.width = '30px';
+            cursor.style.height = '30px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+        });
+
+        // Scroll Animations
+        const elementsToAnimate = document.querySelectorAll('.section-title, .section-subtitle, .research-card, .demo-card, .impact-card, .mitigation-card, .takeaway-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection - Secure Worldz</title>
+    <link rel="icon" href="Images/Secure_Worldz.jpg" type="image/jpg">
+    <link rel="stylesheet" href="Styles/sql-injection.css">
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Secure <span>Worldz</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-text">Secure <span>Worldz</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reflected-xss.html">XSS Research</a></li>
+                <li><a href="information-gathering.html">Tools</a></li>
+                <li><a href="sql-injection.html">SQL Injection</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 50%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 70%; left: 30%; animation-delay: 4s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tagline">Database Security & Vulnerability Research</div>
+            <h1 class="hero-heading">SQL Injection — How It Works, Detection, and Fixes</h1>
+            <p class="hero-description">
+                A comprehensive guide to understanding SQL Injection vulnerabilities, their detection methods, and effective mitigation strategies for secure database operations.
+            </p>
+            <div class="cta-buttons">
+                <a href="#what-is" class="btn btn-primary">Learn More</a>
+                <a href="#how-it-works" class="btn btn-secondary">See Examples</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is SQL Injection Section -->
+    <section id="what-is" class="what-is">
+        <div class="what-is-content">
+            <div class="section-heading">
+                <h2 class="section-title">What is <span>SQL Injection</span>?</h2>
+                <p class="section-subtitle">Understanding the fundamentals of SQL Injection vulnerabilities.</p>
+            </div>
+            <div class="definition-card">
+                <div class="definition-icon">💉</div>
+                <h3 class="definition-title">SQL Injection (SQLi)</h3>
+                <p class="definition-text">
+                    SQL Injection (SQLi) happens when an app inserts user input directly into a database query without proper checks. This lets attackers manipulate the query, often to bypass login, steal or change data, or take over the system. It's common in login forms, search bars, URL parameters, and any input tied to a database.
+                </p>
+            </div>
+            <div class="common-locations">
+                <h3 class="locations-title">Common Attack Vectors</h3>
+                <div class="locations-grid">
+                    <div class="location-item">
+                        <div class="location-icon">🔐</div>
+                        <h4 class="location-name">Login Forms</h4>
+                        <p class="location-description">Authentication bypass attempts</p>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">🔍</div>
+                        <h4 class="location-name">Search Bars</h4>
+                        <p class="location-description">Data extraction through search queries</p>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">🔗</div>
+                        <h4 class="location-name">URL Parameters</h4>
+                        <p class="location-description">GET parameter manipulation</p>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">📝</div>
+                        <h4 class="location-name">Any Database Input</h4>
+                        <p class="location-description">All user inputs connected to databases</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="how-it-works-content">
+            <div class="section-heading">
+                <h2 class="section-title">How Does It <span>Work</span>?</h2>
+                <p class="section-subtitle">Understanding the mechanics behind SQL Injection attacks.</p>
+            </div>
+            <div class="example-container">
+                <div class="example-card">
+                    <h3 class="example-title">Vulnerable Query Example</h3>
+                    <div class="code-block">
+                        <code>SELECT * FROM users WHERE username = 'input' AND password = 'input';</code>
+                    </div>
+                    <p class="example-description">
+                        This is a typical login query that directly concatenates user input into the SQL statement.
+                    </p>
+                </div>
+                
+                <div class="example-card">
+                    <h3 class="example-title">Malicious Input</h3>
+                    <div class="code-block malicious">
+                        <code>admin' OR '1'='1</code>
+                    </div>
+                    <p class="example-description">
+                        When this input is inserted, it manipulates the query logic.
+                    </p>
+                </div>
+                
+                <div class="example-card">
+                    <h3 class="example-title">Resulting Query</h3>
+                    <div class="code-block result">
+                        <code>SELECT * FROM users WHERE username = 'admin' OR '1'='1' AND password = 'input';</code>
+                    </div>
+                    <p class="example-description">
+                        The OR '1'='1' condition is always true, bypassing authentication.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="proof-of-concept">
+                <h3 class="poc-title">Simple Proof of Concept</h3>
+                <div class="poc-steps">
+                    <div class="poc-step">
+                        <div class="step-number">1</div>
+                        <p class="step-text">Go to a login form</p>
+                    </div>
+                    <div class="poc-step">
+                        <div class="step-number">2</div>
+                        <p class="step-text">Enter <code>admin' OR '1'='1</code> as username</p>
+                    </div>
+                    <div class="poc-step">
+                        <div class="step-number">3</div>
+                        <p class="step-text">Leave password blank</p>
+                    </div>
+                    <div class="poc-step">
+                        <div class="step-number">4</div>
+                        <p class="step-text">If you get logged in, the site is vulnerable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detection Section -->
+    <section id="detection" class="detection">
+        <div class="detection-content">
+            <div class="section-heading">
+                <h2 class="section-title">How to <span>Detect</span> It</h2>
+                <p class="section-subtitle">Methods for identifying SQL Injection vulnerabilities.</p>
+            </div>
+            <div class="detection-methods">
+                <div class="method-card">
+                    <div class="method-icon">🔍</div>
+                    <h3 class="method-title">Manual Testing</h3>
+                    <p class="method-description">
+                        Try simple injections like <code>' OR '1'='1</code> or just a single quote <code>'</code> to see if errors or unexpected responses appear.
+                    </p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">🤖</div>
+                    <h3 class="method-title">Automated Scanners</h3>
+                    <p class="method-description">
+                        Use authorized automated scanners (e.g., OWASP ZAP, Burp Suite) that test inputs systematically.
+                    </p>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">⚠️</div>
+                    <h3 class="method-title">Error Analysis</h3>
+                    <p class="method-description">
+                        Look for database error messages or suspicious page behavior after submitting crafted inputs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It's Dangerous Section -->
+    <section id="why-dangerous" class="why-dangerous">
+        <div class="why-dangerous-content">
+            <div class="section-heading">
+                <h2 class="section-title">Why It's <span>Dangerous</span></h2>
+                <p class="section-subtitle">Understanding the potential impact of SQL Injection attacks.</p>
+            </div>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <div class="threat-icon">🔓</div>
+                    <h3 class="threat-title">Authentication Bypass</h3>
+                    <p class="threat-description">Attackers can bypass login systems and gain unauthorized access.</p>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">📊</div>
+                    <h3 class="threat-title">Data Theft</h3>
+                    <p class="threat-description">Steal sensitive information like passwords, personal data, and business records.</p>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">✏️</div>
+                    <h3 class="threat-title">Data Manipulation</h3>
+                    <p class="threat-description">Modify or delete records, corrupting database integrity.</p>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">🎯</div>
+                    <h3 class="threat-title">System Takeover</h3>
+                    <p class="threat-description">Sometimes gain full control of the system and underlying infrastructure.</p>
+                </div>
+            </div>
+            <div class="consequences">
+                <h3 class="consequences-title">Business Impact</h3>
+                <p class="consequences-text">
+                    SQL Injection leads to data breaches, legal risks, reputation damage, and financial losses. Organizations may face regulatory penalties and loss of customer trust.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixes Section -->
+    <section id="fixes" class="fixes">
+        <div class="fixes-content">
+            <div class="section-heading">
+                <h2 class="section-title">How to Fix <span>SQL Injection</span></h2>
+                <p class="section-subtitle">Best practices and mitigation strategies for preventing SQL Injection attacks.</p>
+            </div>
+            <div class="fixes-grid">
+                <div class="fix-card">
+                    <div class="fix-icon">🛡️</div>
+                    <h3 class="fix-title">Use Parameterized Queries</h3>
+                    <p class="fix-description">
+                        Never concatenate user inputs into SQL. Always use prepared statements or ORM tools that separate code from data.
+                    </p>
+                    <div class="code-example">
+                        <h4>Safe Query Example:</h4>
+                        <div class="code-block safe">
+                            <code>$stmt = $pdo->prepare("SELECT * FROM users WHERE username = :user AND password = :pass");<br>
+                            $stmt->execute([':user' => $username, ':pass' => $password]);</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="fix-icon">✅</div>
+                    <h3 class="fix-title">Validate Inputs</h3>
+                    <p class="fix-description">
+                        Restrict input length and allowed characters based on expected data types and formats.
+                    </p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="fix-icon">🔒</div>
+                    <h3 class="fix-title">Principle of Least Privilege</h3>
+                    <p class="fix-description">
+                        Ensure database accounts used by your app have only necessary permissions, not admin access.
+                    </p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="fix-icon">🚫</div>
+                    <h3 class="fix-title">Avoid Exposing Errors</h3>
+                    <p class="fix-description">
+                        Don't show raw database errors to users; log them internally instead for debugging.
+                    </p>
+                </div>
+                
+                <div class="fix-card">
+                    <div class="fix-icon">🛡️</div>
+                    <h3 class="fix-title">Add Security Layers</h3>
+                    <p class="fix-description">
+                        Use Web Application Firewalls (WAFs) and monitor database activity for unusual queries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsible Testing Section -->
+    <section id="responsible-testing" class="responsible-testing">
+        <div class="responsible-testing-content">
+            <div class="warning-card">
+                <div class="warning-icon">⚠️</div>
+                <h2 class="warning-title">Responsible Testing Reminder</h2>
+                <p class="warning-text">
+                    Only test for SQL Injection on systems you own or have explicit permission for. Use safe payloads and isolated environments to avoid breaking anything. Always follow ethical guidelines and legal requirements.
+                </p>
+                <div class="guidelines">
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Test only on authorized systems</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Use isolated test environments</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Follow responsible disclosure</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Respect rate limits and terms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">Secure <span>Worldz</span></div>
+                    <p class="footer-description">
+                        Secure Worldz provides comprehensive security education and research, empowering developers and security professionals with knowledge to build secure applications.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🔗</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reflected-xss.html">XSS Research</a></li>
+                        <li><a href="information-gathering.html">Tools</a></li>
+                        <li><a href="#what-is">SQL Injection</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 2500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.width = '30px';
+            cursor.style.height = '30px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+        });
+
+        // Scroll Animations
+        const elementsToAnimate = document.querySelectorAll('.section-title, .section-subtitle, .definition-card, .location-item, .example-card, .method-card, .threat-card, .fix-card, .warning-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

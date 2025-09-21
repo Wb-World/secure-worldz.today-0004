@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Gathering Tool - Secure Worldz</title>
+    <link rel="icon" href="Images/Secure_Worldz.jpg" type="image/jpg">
+    <link rel="stylesheet" href="Styles/information-gathering.css">
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Secure <span>Worldz</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-text">Secure <span>Worldz</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="reflected-xss.html">XSS Research</a></li>
+                <li><a href="information-gathering.html">Tools</a></li>
+                <li><a href="sql-injection.html">SQL Injection</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-particles">
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 50%; left: 80%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 70%; left: 30%; animation-delay: 4s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tagline">Ethical Hacking & Security Tools</div>
+            <h1 class="hero-heading">Information Gathering Tool — Step-by-Step Overview</h1>
+            <p class="hero-description">
+                A comprehensive tool designed to automate and simplify the information gathering process for ethical hacking, bug bounty hunting, and security assessments.
+            </p>
+            <div class="cta-buttons">
+                <a href="#introduction" class="btn btn-primary">Learn More</a>
+                <a href="#steps" class="btn btn-secondary">View Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="introduction">
+        <div class="introduction-content">
+            <div class="section-heading">
+                <h2 class="section-title">🧠 <span>Introduction</span></h2>
+                <p class="section-subtitle">Understanding the foundation of ethical hacking and security assessment.</p>
+            </div>
+            <div class="intro-card">
+                <p class="intro-text">
+                    Information gathering is the first and most crucial step in ethical hacking or bug bounty hunting. This tool was created to automate and simplify that process by collecting public data about a target domain — safely, passively, and efficiently. It helps map out an organization's external assets without being intrusive, making it ideal for recon during penetration tests or security assessments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps" class="steps">
+        <div class="steps-content">
+            <div class="section-heading">
+                <h2 class="section-title">Process <span>Steps</span></h2>
+                <p class="section-subtitle">A detailed walkthrough of the information gathering workflow.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-icon">🌐</div>
+                        <h3 class="step-title">Domain Input</h3>
+                        <p class="step-description">
+                            The process begins by entering a target domain (e.g., example.com). The tool validates the domain format and prepares it for the recon workflow. It's designed to keep things simple — just input and go.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-icon">🔍</div>
+                        <h3 class="step-title">Subdomain Enumeration</h3>
+                        <p class="step-description">
+                            Using passive techniques like querying Certificate Transparency logs (e.g., crt.sh), the tool gathers a list of subdomains associated with the main domain. This helps identify additional services or environments like dev.example.com or api.example.com that might not be publicly advertised.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-icon">📡</div>
+                        <h3 class="step-title">DNS & WHOIS Lookup</h3>
+                        <p class="step-description">
+                            The tool fetches DNS records such as A, MX, TXT, and NS, giving insight into how the domain is structured and where services are hosted. It also performs a WHOIS lookup to gather metadata like domain registration dates, registrar info, and ownership (if public). This information can be useful for identifying shadow IT or abandoned domains.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-icon">📁</div>
+                        <h3 class="step-title">Public File Discovery</h3>
+                        <p class="step-description">
+                            Next, the tool checks for commonly exposed public files like /robots.txt, /sitemap.xml, and potentially misconfigured .env or .git folders. These files can accidentally reveal sensitive information, internal paths, or forgotten development setups.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <div class="step-icon">⚙️</div>
+                        <h3 class="step-title">Optional Port Scanning (Active)</h3>
+                        <p class="step-description">
+                            If the user enables it and has permission, the tool performs a lightweight port scan to identify open services on the target. This includes common ports like 80 (HTTP), 443 (HTTPS), and 22 (SSH). It's useful for building a basic service map but only runs when explicitly allowed to avoid ethical or legal issues.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <div class="step-icon">🧠</div>
+                        <h3 class="step-title">Technology Fingerprinting</h3>
+                        <p class="step-description">
+                            To understand the tech stack, the tool sends HTTP requests and analyzes response headers. This can reveal backend technologies such as Apache, Nginx, PHP, or Node.js — which is helpful for identifying potential CVEs or misconfigurations later.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">07</div>
+                    <div class="step-content">
+                        <div class="step-icon">🧾</div>
+                        <h3 class="step-title">Output Summary</h3>
+                        <p class="step-description">
+                            At the end of the scan, the tool compiles everything into a clean summary. It lists discovered subdomains, open ports (if scanned), DNS records, WHOIS info, and any public files found. This gives the tester a clear starting point for deeper analysis or vulnerability testing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsible Use Section -->
+    <section id="responsible-use" class="responsible-use">
+        <div class="responsible-use-content">
+            <div class="section-heading">
+                <h2 class="section-title">🔐 Responsible <span>Use</span></h2>
+                <p class="section-subtitle">Ethical guidelines and legal considerations for using security tools.</p>
+            </div>
+            <div class="responsible-card">
+                <div class="responsible-icon">⚖️</div>
+                <h3 class="responsible-title">Legal & Ethical Guidelines</h3>
+                <p class="responsible-description">
+                    This tool is designed for legal, ethical use only — in CTFs, bug bounty programs, internal testing environments, or with written permission. It avoids intrusive scans by default and respects rate limits to prevent disruption.
+                </p>
+                <div class="guidelines-list">
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Use only on authorized targets</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Respect rate limits and terms of service</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Follow responsible disclosure practices</span>
+                    </div>
+                    <div class="guideline-item">
+                        <span class="guideline-icon">✅</span>
+                        <span class="guideline-text">Obtain proper authorization before testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="conclusion">
+        <div class="conclusion-content">
+            <div class="section-heading">
+                <h2 class="section-title">✅ <span>Conclusion</span></h2>
+                <p class="section-subtitle">The value and impact of automated information gathering tools.</p>
+            </div>
+            <div class="conclusion-card">
+                <div class="conclusion-icon">🎯</div>
+                <h3 class="conclusion-title">Key Benefits</h3>
+                <p class="conclusion-text">
+                    This information gathering tool saves time, reduces manual work, and offers a structured overview of a target's attack surface. It's ideal for anyone doing recon in a responsible and efficient way — from bug bounty hunters to penetration testers.
+                </p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏱️</div>
+                        <h4 class="benefit-title">Time Efficient</h4>
+                        <p class="benefit-description">Automates repetitive recon tasks</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <h4 class="benefit-title">Structured Output</h4>
+                        <p class="benefit-description">Organized data for analysis</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛡️</div>
+                        <h4 class="benefit-title">Non-Intrusive</h4>
+                        <p class="benefit-description">Passive information gathering</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <h4 class="benefit-title">Comprehensive</h4>
+                        <p class="benefit-description">Multiple data sources in one tool</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <div class="footer-logo">Secure <span>Worldz</span></div>
+                    <p class="footer-description">
+                        Secure Worldz provides cutting-edge security tools and research, empowering cybersecurity professionals with innovative solutions for a safer digital world.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🔗</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="reflected-xss.html">XSS Research</a></li>
+                        <li><a href="sql-injection.html">SQL Injection</a></li>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#steps">Process</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 2500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.width = '30px';
+            cursor.style.height = '30px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+        });
+
+        // Scroll Animations
+        const elementsToAnimate = document.querySelectorAll('.section-title, .section-subtitle, .intro-card, .step-card, .responsible-card, .conclusion-card, .benefit-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
